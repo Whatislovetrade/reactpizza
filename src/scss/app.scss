@@ -2,6 +2,7 @@
 @use './fonts';
 @use './libs/normalize';
 @use './libs/mixins' as *;
+@use "sass:color"; // Подключаем модуль для работы с цветами
 
 @use './components/all';
 
@@ -98,11 +99,11 @@ body {
     &:hover {
       svg {
         path {
-          stroke: darken($color: #b6b6b6, $amount: 50);
+          stroke: color.scale(#b6b6b6, $lightness: -50%); // Заменили darken на color.scale
         }
       }
       span {
-        color: darken($color: #b6b6b6, $amount: 50);
+        color: color.scale(#b6b6b6, $lightness: -50%); // Заменили darken на color.scale
       }
     }
   }
@@ -184,14 +185,14 @@ body {
       width: 4%;
 
       .button {
-        border-color: darken($color: $gray-line, $amount: 10);
+        border-color: color.scale($gray-line, $lightness: -10%); // Заменили darken на color.scale
       }
 
       svg {
         transform: rotate(45deg);
 
         path {
-          fill: darken($color: $gray-line, $amount: 15);
+          fill: color.scale($gray-line, $lightness: -15%); // Заменили darken на color.scale
         }
       }
 
@@ -203,8 +204,8 @@ body {
         }
         &:hover,
         &:active {
-          border-color: darken($color: $gray-line, $amount: 80);
-          background-color: darken($color: $gray-line, $amount: 80);
+          border-color: color.scale($gray-line, $lightness: -80%); // Заменили darken на color.scale
+          background-color: color.scale($gray-line, $lightness: -80%); // Заменили darken на color.scale
         }
       }
     }
@@ -239,17 +240,17 @@ body {
         justify-content: center;
         width: 210px;
 
-        border-color: darken($color: $gray-line, $amount: 10);
+        border-color: color.scale($gray-line, $lightness: -10%); // Заменили darken на color.scale
 
         span {
-          color: darken($color: $gray-line, $amount: 20);
+          color: color.scale($gray-line, $lightness: -20%); // Заменили darken на color.scale
           font-weight: 500;
           font-weight: 600;
         }
 
         &:hover {
-          background-color: darken($color: $gray-line, $amount: 90);
-          border-color: darken($color: $gray-line, $amount: 90);
+          background-color: color.scale($gray-line, $lightness: -90%); // Заменили darken на color.scale
+          border-color: color.scale($gray-line, $lightness: -90%); // Заменили darken на color.scale
 
           span {
             color: $gray-line;

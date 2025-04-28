@@ -1,5 +1,6 @@
 @use '../variables' as *;
 @use '../libs/mixins' as *;
+@use "sass:color"; // Подключаем модуль для работы с цветами
 
 .categories {
   ul {
@@ -15,12 +16,13 @@
       transition: background-color 0.1s ease-in-out;
       @include noselect();
 
+      // Обновление старых функций darken на color.scale
       &:hover {
-        background-color: darken(#f9f9f9, 2%);
+        background-color: color.scale(#f9f9f9, $lightness: -2%);
       }
 
       &:active {
-        background-color: darken(#f9f9f9, 5%);
+        background-color: color.scale(#f9f9f9, $lightness: -5%);
       }
 
       &.active {

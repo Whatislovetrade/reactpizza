@@ -1,5 +1,6 @@
 @use '../variables' as *;
 @use '../libs/mixins' as *;
+@use "sass:color"; // Подключаем модуль для работы с цветами
 
 .button {
   display: inline-block;
@@ -26,11 +27,11 @@
   }
 
   &:hover {
-    background-color: darken($orange, 8%);
+    background-color: color.scale($orange, $lightness: -8%); // Заменили darken на color.scale
   }
 
   &:active {
-    background-color: darken($orange, 12%);
+    background-color: color.scale($orange, $lightness: -12%); // Заменили darken на color.scale
     transform: translateY(1px);
   }
 
@@ -50,7 +51,7 @@
 
     &:hover,
     &:active {
-      background-color: lighten($color: $black, $amount: 10);
+      background-color: color.scale($black, $lightness: 10%); // Заменили lighten на color.scale
     }
   }
 
@@ -84,7 +85,7 @@
     }
 
     &:active {
-      background-color: darken($orange, 8%);
+      background-color: color.scale($orange, $lightness: -8%); // Заменили darken на color.scale
     }
   }
 
